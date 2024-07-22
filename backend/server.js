@@ -1,10 +1,7 @@
 import express from "express";
 import dotenv from "dotenv";
 import cors from "cors";
-import authRoute from "./routes/auth.routes.js"
 import mongoCon from "./db/mongoConnect.js";
-import insertSampleData from "./db/createSamUser.js"
-import dropCollections from "./db/dropColl.js";
 import {generateLeaderboardsData,updateQuizScore} from "./db/gamificationLogic.js";
 import { Topic, UserProfile } from "./models/user.model.js";
 import callBackRoute from "./routes/callback.routes.js";
@@ -21,7 +18,6 @@ app.use(express.json());
 const PORT = 5000;
 
 
-app.use("/auth",authRoute);
 app.use("/",callBackRoute);
 
 app.get("/", (req, res) => {
